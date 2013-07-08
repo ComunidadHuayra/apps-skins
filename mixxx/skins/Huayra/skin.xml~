@@ -1,9 +1,11 @@
 	<!--
-	Shade, Skin for Mixxx 1.10.x
+	Huayra Mixxx, Skin for Mixxx 1.10.x
+	Version by Iván Hoffmann (digital.h@gmail.com)
+	Based on Shade, Skin for Mixxx 1.10.x by jus (jus@justmail.de)
 	www.mixxx.org
-	Copyright (C) 2010-2012 jus ; jus@justmail.de
-	This file is part of the "Shade" Skin for Mixxx
-	"Shade" is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported license.
+	
+	This file is part of the "Huayra" Skin for Mixxx
+	"Huayra" is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported license.
 	http://creativecommons.org/licenses/by-sa/3.0/
 
 	You are free:
@@ -18,137 +20,8 @@
 	the resulting work only under the same or similar license to this one.
 
 	CHANGELOG
-	v1.10.0.18	(25/04/2012)
-	* Update: Tooltips for waveform (Pitch bend on right click)
-	* Change: Use global QToolTip style declaration instead of one per node
-
-	v1.10.0.17	(22/12/2011)
-	* Update: Attach right-click of SYNC button to beatsync_tempo, lp:905800
-
-	v1.10.0.16	(14/12/2011)
-	* Update: Unify word choice in tooltips, replaces "player" with "deck", lp:879084
-
-	v1.10.0.15	(05/12/2011)
-	* Fix: Changed stylesheets for tooltip so that they are not cut off anymore on Windows,
-	  working around a QT issue, lp:712718
-
-	v1.10.0.14	(26/11/2011)
-	* Feature: Added "ProgressColor" & "ProgressAlpha" for track analysis progress visualization
-	  in waveform overview, lp:803740
-
-	v1.10.0.13	(02/11/2011)
-	* Fix: use "visual_bpm" key instead "bpm" so bpm display does not updates too quickly
-
-	v1.10.0.12	(29/10/2011)
-	* Fix: Selected sidebar item's branch indicator shows wrong color when out of focus
-
-	v1.10.0.11	(16/10/2011)
-	* Update: Tooltips for spinning vinyl, waveform (overview) due to changes in functionality
-
-	v1.10.0.10	(16/10/2011)
-	* Fix: Wrong button for hotcue 1 on channel 2 was displayed
-
-	v1.10.0.09	(01/06/2011)
-	* Feature: Added BPM display & BPM tap button to samplers
-
-	v1.10.0.08	(24/05/2011)
-	* Feature: Added spinning vinyl widget
-
-	v1.10.0.07	(12/05/2011)
-	* Feature: Added mix orientation for microphone
-	* Update: Vinylcontrol & microphone widget positioning & graphics
-	* Update: Vinylcontrol indicator positioning & graphics
-	* Update: Tabs to show/hide widgets positioning & graphics
-
-	v1.10.0.06	(03/05/2011)
-	* Update: Graphics for more consistent look
-	* Update: Use 64 pictures for smooth knob animation (derived fom 128 midi note numbers)
-	* Update: Moved knobs and style elements to subfolders
-
-	v1.10.0.05	(30/04/2011)
-	* Feature: Added UI elements for samplers
-	* Update: Stylesheets
-
-	v1.10.0.04	(26/04/2011)
-	* Feature: Added Mixxx 1.10.0 features
-	  Microphone,Sampler,Beatloop,Vinyl control widgets
-	* Feature: Added tabs to show/hide the new widgets
-
-	v1.10.0.03	(12/04/2011)
-	* Added Mixxx 1.10.0 feature:
-	  Skin uses WidgetGroups positioning now
-	  WidgetGroups allow to make a group of relatively positioned widgets, useful for easy resizing
-	  http://mixxx.org/wiki/doku.php/creating_skins#widgetgroup
-
-	v1.10.0.02	(29/03/2011)
-	* Added Mixxx 1.10.0 feature:
-	  EmitOnDownPress double-skin connection block replaced with EmitOnPressAndRelease
-
-	v1.10.0.01	(21/03/2011)
-	* Introduce new version number scheme for skins that follows the target Mixxx versioning
-	  <Mixxx.major>.<Mixxx.minor>.<Mixxx.patch>.<Skin.patch>
-	* Added Mixxx 1.10.0 feature:
-	  Tracks duration can be displayed independent from tracks remaining time using Trackproperty
-	* Updated text positioning & tooltips accordingly
-
-	v1.09.1	(13/03/2011)
-	* Added Mixxx 1.9.1 feature: Expanded to support 36 hot cues
-
-	v1.09	(20/02/2011)
-	* Changed Playing position tooltips to reflect new toggle functionality
-
-	v1.08	(14/12/2010)
-	* Added custom images for splitter in library
-	* Added custom images for branch triangle in treeview
-	* Added visual feedback when searchbox has focus
-
-	v1.07	(02/12/2010)
-	* Added custom images for checkboxes in library
-	* Updated styles
-
-	v1.06	(20/11/2010)
-	* Added Mixxx 1.9 features: Keylock & Repeat buttons
-	* Deleted end-of-track mode buttons
-
-	v1.05	(20/09/2010)
-	* Added stylesheet support for library & tooltips
-
-	v1.04	(16/09/2010)
-	* Added support for up to 32 Hotcues with MIDI-controllers
-	* Hotcue buttons now reflect its toggle state
-
-	v1.03	(14/09/2010)
-	* Corrected errors in (Hot)cues resulting in unexpected behaviour
-	* Reloop button now reflect its toggle state
-
-	v1.02	(13/09/2010)
-	* Change skin license to Creative Commons Attribution-ShareAlike 3.0 Unported
-	  Skin now DFSG-compatible see http://wiki.debian.org/DebianFreeSoftwareGuidelines
-	* Major Tooltips overhault, they provide more helpful informations now
-
-	v1.01	(10/09/2010)
-	* (Hot)Cue marker now drawn on top of loop overlay for better visibility
-	* Finetuning on various VUmeter keys
-	* Version bump
-	- Removed some orphaned keys no longer in Mixxx codebase
-
-	v0.84b	(01/08/2010)
-	# corrected Headphone button positioning
-
-	v0.83b	(13/06/2010)
-	# corrected FX button positioning
-
-	v0.82b	(20/05/2010)
-	# reduced height, application window now fits Linux/Gnome too,
-	  this means less space for library widget :-(
-	# Gfx cleanup
-	- removed "Preview" watermark
-
-	v0.81b	(18/02/2010)
-	+ Hotcues preview the Cue when the deck is stopped
-
-	v0.80b	(11/02/2010)
-	Initial Developer Preview for Mixxx 1.8.x
+	See original Shade skin.
+	
 	-->
 
 <!DOCTYPE skin>
@@ -238,8 +111,8 @@
 							-->
 							<Text>
 								<Tooltip>Track title&#10;Displays the artist and title of the loaded track.&#10;Informations are extracted from the tracks tags.&#10;</Tooltip>
-								<Style>QLabel { font: bold 12px/14px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-								background-color: transparent; color: #191F24; text-align: left; padding-left: 1px; }
+								<Style>QLabel { font: bold 11px/11px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+								background-color: transparent; color: #32332a; text-align: left; padding-left: 1px; }
 								</Style>
 								<Group>[Sampler1]</Group>
 								<Pos>2,3</Pos>
@@ -266,7 +139,7 @@
 							<NumberBpm>
 								<Tooltip>Tempo&#10;Displays the tempo of the loaded track in BPM (beats per minute)&#10;</Tooltip>
 								<Style>QLabel { font: bold 12px/14px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-								background-color: transparent; color: #191F24; text-align: left;padding-left: 1px; }
+								background-color: transparent; color: #32332a; text-align: left;padding-left: 1px; }
 								</Style>
 								<Group>[Sampler1]</Group>
 								<Pos>164,3</Pos>
@@ -317,7 +190,7 @@
 								<Group>[Sampler1]</Group>
 								<Pos>5,25</Pos>
 								<Size>170,35</Size>
-								<SignalColor>#191F24</SignalColor>
+								<SignalColor>#32332a</SignalColor>
 								<MarkerColor>#00FF00</MarkerColor>
 								<ProgressColor>#191F24</ProgressColor>
 								<ProgressAlpha>80</ProgressAlpha>
@@ -390,7 +263,7 @@
 								<Style></Style>
 								<Handle>knob_pitch_sampler.png</Handle>
 								<Slider>slider_pitch_sampler.png</Slider>
-								<Pos>228,8</Pos>
+								<Pos>225,8</Pos>
 								<Horizontal>false</Horizontal>
 								<Connection>
 									<ConfigKey>[Sampler1],rate</ConfigKey>
@@ -715,8 +588,8 @@
 							-->
 							<Text>
 								<Tooltip>Track title&#10;Displays the artist and title of the loaded track.&#10;Informations are extracted from the tracks tags.&#10;</Tooltip>
-								<Style>QLabel { font: bold 12px/14px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-								background-color: transparent; color: #191F24; text-align: left; padding-left: 1px; }
+								<Style>QLabel { font: bold 11px/11px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+								background-color: transparent; color: #32332a; text-align: left; padding-left: 1px; }
 								</Style>
 								<Group>[Sampler2]</Group>
 								<Pos>2,3</Pos>
@@ -743,7 +616,7 @@
 							<NumberBpm>
 								<Tooltip>Tempo&#10;Displays the tempo of the loaded track in BPM (beats per minute)&#10;</Tooltip>
 								<Style>QLabel { font: bold 12px/14px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-								background-color: transparent; color: #191F24; text-align: left;padding-left: 1px; }
+								background-color: transparent; color: #32332a; text-align: left;padding-left: 1px; }
 								</Style>
 								<Group>[Sampler2]</Group>
 								<Pos>164,3</Pos>
@@ -794,7 +667,7 @@
 								<Group>[Sampler2]</Group>
 								<Pos>5,25</Pos>
 								<Size>170,35</Size>
-								<SignalColor>#191F24</SignalColor>
+								<SignalColor>#32332a</SignalColor>
 								<MarkerColor>#00FF00</MarkerColor>
 								<ProgressColor>#191F24</ProgressColor>
 								<ProgressAlpha>80</ProgressAlpha>
@@ -867,7 +740,7 @@
 								<Style></Style>
 								<Handle>knob_pitch_sampler.png</Handle>
 								<Slider>slider_pitch_sampler.png</Slider>
-								<Pos>228,8</Pos>
+								<Pos>225,8</Pos>
 								<Horizontal>false</Horizontal>
 								<Connection>
 									<ConfigKey>[Sampler2],rate</ConfigKey>
@@ -1192,8 +1065,8 @@
 							-->
 							<Text>
 								<Tooltip>Track title&#10;Displays the artist and title of the loaded track.&#10;Informations are extracted from the tracks tags.&#10;</Tooltip>
-								<Style>QLabel { font: bold 12px/14px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-								background-color: transparent; color: #191F24; text-align: left; padding-left: 1px; }
+								<Style>QLabel { font: bold 11px/11px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+								background-color: transparent; color: #32332a; text-align: left; padding-left: 1px; }
 								</Style>
 								<Group>[Sampler3]</Group>
 								<Pos>2,3</Pos>
@@ -1220,7 +1093,7 @@
 							<NumberBpm>
 								<Tooltip>Tempo&#10;Displays the tempo of the loaded track in BPM (beats per minute)&#10;</Tooltip>
 								<Style>QLabel { font: bold 12px/14px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-								background-color: transparent; color: #191F24; text-align: left;padding-left: 1px; }
+								background-color: transparent; color: #32332a; text-align: left;padding-left: 1px; }
 								</Style>
 								<Group>[Sampler3]</Group>
 								<Pos>164,3</Pos>
@@ -1271,7 +1144,7 @@
 								<Group>[Sampler3]</Group>
 								<Pos>5,25</Pos>
 								<Size>170,35</Size>
-								<SignalColor>#191F24</SignalColor>
+								<SignalColor>#32332a</SignalColor>
 								<MarkerColor>#00FF00</MarkerColor>
 								<ProgressColor>#191F24</ProgressColor>
 								<ProgressAlpha>80</ProgressAlpha>
@@ -1344,7 +1217,7 @@
 								<Style></Style>
 								<Handle>knob_pitch_sampler.png</Handle>
 								<Slider>slider_pitch_sampler.png</Slider>
-								<Pos>228,8</Pos>
+								<Pos>225,8</Pos>
 								<Horizontal>false</Horizontal>
 								<Connection>
 									<ConfigKey>[Sampler3],rate</ConfigKey>
@@ -1669,8 +1542,8 @@
 							-->
 							<Text>
 								<Tooltip>Track title&#10;Displays the artist and title of the loaded track.&#10;Informations are extracted from the tracks tags.&#10;</Tooltip>
-								<Style>QLabel { font: bold 12px/14px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-								background-color: transparent; color: #191F24; text-align: left; padding-left: 1px; }
+								<Style>QLabel { font: bold 11px/11px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+								background-color: transparent; color: #32332a; text-align: left; padding-left: 1px; }
 								</Style>
 								<Group>[Sampler4]</Group>
 								<Pos>2,3</Pos>
@@ -1697,7 +1570,7 @@
 							<NumberBpm>
 								<Tooltip>Tempo&#10;Displays the tempo of the loaded track in BPM (beats per minute)&#10;</Tooltip>
 								<Style>QLabel { font: bold 12px/14px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-								background-color: transparent; color: #191F24; text-align: left;padding-left: 1px; }
+								background-color: transparent; color: #32332a; text-align: left;padding-left: 1px; }
 								</Style>
 								<Group>[Sampler4]</Group>
 								<Pos>164,3</Pos>
@@ -1748,7 +1621,7 @@
 								<Group>[Sampler4]</Group>
 								<Pos>5,25</Pos>
 								<Size>170,35</Size>
-								<SignalColor>#191F24</SignalColor>
+								<SignalColor>#32332a</SignalColor>
 								<MarkerColor>#00FF00</MarkerColor>
 								<ProgressColor>#191F24</ProgressColor>
 								<ProgressAlpha>80</ProgressAlpha>
@@ -1821,7 +1694,7 @@
 								<Style></Style>
 								<Handle>knob_pitch_sampler.png</Handle>
 								<Slider>slider_pitch_sampler.png</Slider>
-								<Pos>228,8</Pos>
+								<Pos>225,8</Pos>
 								<Horizontal>false</Horizontal>
 								<Connection>
 									<ConfigKey>[Sampler4],rate</ConfigKey>
@@ -2156,7 +2029,7 @@
 					<TableView>
 						<Style>
 						QTableView, QTextBrowser, QTreeView { border: 0px solid #656565; font: 12px/14px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-						background: transparent; color: #FFFF00;
+						background: transparent; color: #FFFFFF; selection-color: #44f900; selection-background-color: #0d302e;
 						<!--we use  "background: transparent" as workaround, else "alternate-background-color" wont work, QT 4.7.x bug?-->
 						alternate-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(43, 43, 43, 255), stop:0.049 rgba(43, 43, 43, 255), stop:0.050 rgba(43, 43, 43, 100), stop:0.949 rgba(43, 43, 43, 100), stop:0.95 rgba(43, 43, 43, 255), stop:1 rgba(43, 43, 43, 255));}
 						<!--checkbox in library "Played" column -->
@@ -2164,11 +2037,15 @@
 						QTableView::indicator:checked { background: url(skin:/style/style_checkbox_checked.png);}
 						QTableView::indicator:unchecked { background: url(skin:/style/style_checkbox_unchecked.png);}
 
-						QHeaderView { font: 11px/13px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif; }
+						QHeaderView { margin: 0; font: 11px/13px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif; font-weight: bold;}
+						QHeaderView::section { padding: 2px; background: #808080; border-top: 1px solid #2d5050; border-bottom: 1px solid #061319;border-left: 1px solid #2d5050; border-right: 1px solid #061319; color: #000000;}
+						QHeaderView::section:selected { padding: 2px; background: #E4E4E4; border-top: none; border-bottom: 1px solid #061319;border-left: 1px solid #061319; border-right: none; }
+						QHeaderView::up-arrow { margin-left: 5px; image: url(skin:/style/sort_up.png)}
+						QHeaderView::down-arrow { margin-left: 5px; image: url(skin:/style/sort_down.png)}
 
 						<!--library search bar-->
-						WSearchLineEdit { padding: 2px; border: 1px solid #656565; font: 12px/14px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif; background: rgba(0,0,0,100); color: #ACACAC; }
-						WSearchLineEdit:focus {padding: 2px; border: 2px solid #FF6600; font: 12px/14px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif; background: rgba(255, 102, 0,20); color: #D6D6D6;}
+						WSearchLineEdit { padding: 2px 4px 2px 4px; border: 1px solid #656565; font: 12px/14px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif; background: rgba(0,0,0,100); color: #ACACAC; }
+						WSearchLineEdit:focus {padding: 2px; border: 2px solid #44f900; font: 12px/14px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif; background: rgba(79, 172, 72,50); color: #D6D6D6;}
 
 						<!--splitter between treeview and library-->
 						QSplitter::handle { image: url(skin:/style/style_handle_unchecked.png); background: none; }
@@ -2186,6 +2063,30 @@
 						QTreeView::branch:closed:has-children:has-siblings { border-image: none; image: url(skin:/style/style_branch_closed.png);}
 						QTreeView::branch:open:has-children:!has-siblings,
 						QTreeView::branch:open:has-children:has-siblings { border-image: none; image: url(skin:/style/style_branch_open.png);}
+						
+						
+						QScrollBar:horizontal { border-top: 0; background: #061319; height: 12px; margin: 0px 43px 0px 0px; }
+						QScrollBar::handle:horizontal { border-top: 1px solid #909090; border-bottom: 1px solid #061319;border-left: 1px solid #909090; border-right: 1px solid #061319; background: #1b3030; min-width: 20px; } <!-- Barra horizontal -->
+						QScrollBar::handle:horizontal:pressed { border-bottom: 1px solid #909090; border-top: 1px solid #061319;border-right: 1px solid #909090; border-left: 1px solid #061319; background: #132121; min-width: 20px; } <!-- Barra horizontal seleccionada -->
+						QScrollBar::add-line:horizontal { background: #1b3030; width: 20px; subcontrol-position: right; subcontrol-origin: margin; border-top: 1px solid #909090; border-bottom: 1px solid #061319;border-left: 1px solid #909090; border-right: 1px solid #061319; } <!-- Scrollbar flecha? derecha -->
+						QScrollBar::add-line:horizontal:pressed { background: #132121; width: 20px; subcontrol-position: right; subcontrol-origin: margin; border-bottom: 1px solid #909090; border-top: 1px solid #061319;border-right: 1px solid #909090; border-left: 1px solid #061319; } <!-- Scrollbar flecha? derecha seleccionada -->
+						QScrollBar::sub-line:horizontal { background: #1b3030; width: 20px; subcontrol-position: top right; subcontrol-origin: margin; position: absolute; right: 21px; border-top: 1px solid #909090; border-bottom: 1px solid #061319;border-left: 1px solid #909090; border-right: 1px solid #061319; } <!-- Scrollbar flecha? izquierda -->
+						QScrollBar::sub-line:horizontal:pressed { background: #132121; width: 20px; subcontrol-position: top right; subcontrol-origin: margin; position: absolute; right: 21px; border-bottom: 1px solid #909090; border-top: 1px solid #061319;border-right: 1px solid #909090; border-left: 1px solid #061319; } <!-- Scrollbar flecha? izquierda seleccionada -->
+						QScrollBar:left-arrow:horizontal, QScrollBar::right-arrow:horizontal { width: 12px; height: 12px; background: none; }
+						QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal { background: none; }
+						QScrollBar::left-arrow:horizontal { image: url(skin:/style/scroll_left.png)} QScrollBar::right-arrow:horizontal { image: url(skin:/style/scroll_right.png)}
+
+						QScrollBar:vertical { border-left: 0; background: #061319; width: 12px; margin: 0px 0px 43px 0px; }
+						QScrollBar::handle:vertical { border-top: 1px solid #909090; border-bottom: 1px solid #061319;border-left: 1px solid #909090; border-right: 1px solid #061319; background: #1b3030; min-height: 20px; }
+						QScrollBar::handle:vertical:pressed { border-bottom: 1px solid #909090; border-top: 1px solid #061319;border-right: 1px solid #909090; border-left: 1px solid #061319; background: #132121; min-height: 20px; }
+						QScrollBar::add-line:vertical { background: #1b3030; height: 20px; subcontrol-position: bottom; subcontrol-origin: margin; border-top: 1px solid #909090; border-bottom: 1px solid #061319;border-left: 1px solid #909090; border-right: 1px solid #061319;}
+						QScrollBar::add-line:vertical:pressed { background: #132121; height: 20px; subcontrol-position: bottom; subcontrol-origin: margin; border-bottom: 1px solid #909090; border-top: 1px solid #061319;border-right: 1px solid #909090; border-left: 1px solid #061319;}
+						QScrollBar::sub-line:vertical { background: #1b3030; height: 20px; subcontrol-position: top bottom; subcontrol-origin: margin;position: absolute; bottom: 21px; border-top: 1px solid #909090; border-bottom: 1px solid #061319;border-left: 1px solid #909090; border-right: 1px solid #061319;}
+						QScrollBar::sub-line:vertical:pressed { background: #132121; height: 20px; subcontrol-position: top bottom; subcontrol-origin: margin; position: absolute; bottom: 21px; border-bottom: 1px solid #909090; border-top: 1px solid #061319;border-right: 1px solid #909090; border-left: 1px solid #061319; }
+						QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical { width: 12px; height: 12px; background: none; }
+						QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {background: none; } QScrollBar::add-page:vertical:pressed, QScrollBar::sub-page:vertical:pressed {background: none; }
+						QScrollBar::up-arrow:vertical { image: url(skin:/style/scroll_up.png)}
+						QScrollBar::down-arrow:vertical { image: url(skin:/style/scroll_down.png)}
 						</Style>
 						<!--
 						<BgColor>#101010</BgColor>
@@ -2308,7 +2209,7 @@
 						<Style></Style>
 						<Handle>knob_volume1.png</Handle>
 						<Slider>slider_volume1.png</Slider>
-						<Pos>72,91</Pos>
+						<Pos>70,91</Pos>
 						<Horizontal>false</Horizontal>
 						<Connection>
 							<ConfigKey>[Channel1],volume</ConfigKey>
@@ -2320,7 +2221,7 @@
 						<Style></Style>
 						<Handle>knob_volume2.png</Handle>
 						<Slider>slider_volume2.png</Slider>
-						<Pos>168,91</Pos>
+						<Pos>166,91</Pos>
 						<Horizontal>false</Horizontal>
 						<Connection>
 							<ConfigKey>[Channel2],volume</ConfigKey>
@@ -2338,7 +2239,7 @@
 						<Style></Style>
 						<Handle>knob_crossfader.png</Handle>
 						<Slider>slider_crossfader.png</Slider>
-						<Pos>72,230</Pos>
+						<Pos>75,230</Pos>
 						<Horizontal>true</Horizontal>
 						<Connection>
 							<ConfigKey>[Master],crossfader</ConfigKey>
@@ -3522,7 +3423,7 @@
 						<BgColor>#8D98A3</BgColor>
 						<BgPixmap>style/style_bg_woverview.png</BgPixmap>
 						-->
-						<SignalColor>#191F24</SignalColor>
+						<SignalColor>#32332a</SignalColor>
 						<MarkerColor>#00FF00</MarkerColor>
 						<ProgressColor>#191F24</ProgressColor>
 						<ProgressAlpha>80</ProgressAlpha>
@@ -3539,8 +3440,8 @@
 					-->
 					<TrackProperty>
 						<Tooltip>Track title&#10;Displays the title of the loaded track.&#10;Informations are extracted from the tracks tags.&#10;</Tooltip>
-						<Style>QLabel { font: bold 14px/12px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-						background-color: transparent; color: #191F24; text-align: left; padding-left: 1px; }
+						<Style>QLabel { font: bold 11px/11px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif; 
+						background-color: transparent; color: #32332a; text-align: left; padding-left: 1px; }
 						</Style>
 						<Property>title</Property>
 						<Channel>1</Channel>
@@ -3555,8 +3456,8 @@
 					-->
 					<TrackProperty>
 						<Tooltip>Track Artist&#10;Displays the artist of the loaded track.&#10;Informations are extracted from the tracks tags.&#10;</Tooltip>
-						<Style>QLabel { font: bold 14px/12px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-						background-color: transparent; color: #191F24; text-align: left; padding-left: 1px; }
+						<Style>QLabel { font: bold 11px/11px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+						background-color: transparent; color: #32332a; text-align: left; padding-left: 1px; }
 						</Style>
 						<Property>artist</Property>
 						<Channel>1</Channel>
@@ -3572,7 +3473,7 @@
 					<NumberBpm>
 						<Tooltip>Tempo&#10;Displays the tempo of the loaded track in BPM (beats per minute)&#10;</Tooltip>
 						<Style>QLabel { font: bold 14px/12px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-						background-color: transparent; color: #191F24; text-align: left;padding-left: 1px; }
+						background-color: transparent; color: #32332a; text-align: left;padding-left: 1px; }
 						</Style>
 						<Channel>1</Channel>
 						<Pos>245,4</Pos>
@@ -3592,7 +3493,7 @@
 					<NumberPos>
 						<Tooltip>Time&#10;Displays the elapsed or remaining time of the track loaded.&#10;Click to toggle between time elapsed/remaining time.&#10;</Tooltip>
 						<Style>QLabel { font: bold 14px/12px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-						background-color: transparent; color: #191F24; text-align: left;padding-left: 1px; }
+						background-color: transparent; color: #32332a; text-align: left;padding-left: 1px; }
 						</Style>
 						<Channel>1</Channel>
 						<Pos>215,24</Pos>
@@ -3659,7 +3560,7 @@
 						<Style></Style>
 						<Handle>knob_pitch1.png</Handle>
 						<Slider>slider_pitch1.png</Slider>
-						<Pos>335,45</Pos>
+						<Pos>332,45</Pos>
 						<Horizontal>false</Horizontal>
 						<Connection>
 							<ConfigKey>[Channel1],rate</ConfigKey>
@@ -4548,7 +4449,7 @@
 								<BgColor>#0d302e</BgColor>
 								<!--<BgPixmap>style/style_bg_waveform.png</BgPixmap>-->
 								<HfcColor>#E4E4E4</HfcColor>
-								<SignalColor>#191F24</SignalColor>
+								<SignalColor>#a6f488</SignalColor>
 								<BeatColor>#626F87</BeatColor>
 								<BeatHighlightColor>#626F87</BeatHighlightColor>
 								<MarkerColor>#00FF00</MarkerColor>
@@ -5007,7 +4908,7 @@
 						<BgColor>#8D98A3</BgColor>
 						<BgPixmap>style/style_bg_woverview.png</BgPixmap>
 						-->
-						<SignalColor>#191F24</SignalColor>
+						<SignalColor>#32332a</SignalColor>
 						<MarkerColor>#00FF00</MarkerColor>
 						<ProgressColor>#191F24</ProgressColor>
 						<ProgressAlpha>80</ProgressAlpha>
@@ -5024,8 +4925,8 @@
 					-->
 					<TrackProperty>
 						<Tooltip>Track title&#10;Displays the title of the loaded track.&#10;Informations are extracted from the tracks tags.&#10;</Tooltip>
-						<Style>QLabel { font: bold 14px/12px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-						background-color: transparent; color: #191F24; text-align: left; padding-left: 1px; }
+						<Style>QLabel { font: bold 11px/11px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+						background-color: transparent; color: #32332a; text-align: left; padding-left: 1px; }
 						</Style>
 						<Property>title</Property>
 						<Channel>2</Channel>
@@ -5040,8 +4941,8 @@
 					-->
 					<TrackProperty>
 						<Tooltip>Track Artist&#10;Displays the artist of the loaded track.&#10;Informations are extracted from the tracks tags.&#10;</Tooltip>
-						<Style>QLabel { font: bold 14px/12px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-						background-color: transparent; color: #191F24; text-align: left; padding-left: 1px; }
+						<Style>QLabel { font: bold 11px/11px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+						background-color: transparent; color: #32332a; text-align: left; padding-left: 1px; }
 						</Style>
 						<Property>artist</Property>
 						<Channel>2</Channel>
@@ -5057,7 +4958,7 @@
 					<NumberBpm>
 						<Tooltip>Tempo&#10;Displays the tempo of the loaded track in BPM (beats per minute)&#10;</Tooltip>
 						<Style>QLabel { font: bold 14px/12px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-						background-color: transparent; color: #191F24; text-align: left;padding-left: 1px; }
+						background-color: transparent; color: #32332a; text-align: left;padding-left: 1px; }
 						</Style>
 						<Channel>2</Channel>
 						<Pos>245,4</Pos>
@@ -5077,7 +4978,7 @@
 					<NumberPos>
 						<Tooltip>Time&#10;Displays the elapsed or remaining time of the track loaded.&#10;Click to toggle between time elapsed/remaining time.&#10;</Tooltip>
 						<Style>QLabel { font: bold 14px/12px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-						background-color: transparent; color: #191F24; text-align: left;padding-left: 1px; }
+						background-color: transparent; color: #32332a; text-align: left;padding-left: 1px; }
 						</Style>
 						<Channel>2</Channel>
 						<Pos>215,24</Pos>
@@ -5144,7 +5045,7 @@
 						<Style></Style>
 						<Handle>knob_pitch2.png</Handle>
 						<Slider>slider_pitch2.png</Slider>
-						<Pos>335,45</Pos>
+						<Pos>332,45</Pos>
 						<Horizontal>false</Horizontal>
 						<Connection>
 							<ConfigKey>[Channel2],rate</ConfigKey>
