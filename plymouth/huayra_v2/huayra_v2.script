@@ -1,0 +1,405 @@
+# Gradiente de fondo
+gradiente = Image("cielo.png");
+
+# En el caso de no usarse en una netbook, Huayra debe reconocer y escalar a la resolucion correcta
+ancho_pantalla = Window.GetWidth();
+altura_pantalla = Window.GetHeight();
+medio = ancho_pantalla / 2;
+
+grad_rescalado = gradiente.Scale(ancho_pantalla, altura_pantalla);
+
+gradiente_sprite = Sprite(grad_rescalado);
+
+gradiente_sprite.SetX(Window.GetWidth() / 2 - grad_rescalado.GetWidth() / 2);
+gradiente_sprite.SetY(Window.GetHeight() / 2 - grad_rescalado.GetHeight() / 2);
+gradiente_sprite.SetZ(-100000);
+
+# Carga frames de animacion
+for (i = 0; i < 27; i++)
+    timer_imagenes[i] = Image("vaca-volando--" + i + ".png");
+for (i = 0; i < 27; i++)
+    timer_imagenes_flip[i] = Image("vaca-volando-flip--" + i + ".png");
+
+
+# Sprite normal
+timer_sprite = Sprite();
+timer_sprite.SetX(Window.GetWidth());
+timer_sprite.SetY(Window.GetHeight() * 0.70 - timer_imagenes[1].GetHeight() / 2);
+timer_sprite.SetZ(11);
+timer_sprite.SetOpacity(1);
+
+# Sprite flipeado
+timer_sprite_flip = Sprite();
+timer_sprite_flip.SetX(0);
+timer_sprite_flip.SetY(Window.GetHeight() * 0.70 - timer_imagenes[1].GetHeight() / 2);
+timer_sprite_flip.SetZ(11);
+timer_sprite_flip.SetOpacity(1);
+
+
+# Nubes
+nube1_img = Image("nube1.png");
+nube1 = Sprite(nube1_img);
+nube1.SetX(0);
+nube1.SetY(Window.GetHeight() * 0.25 - nube1_img.GetHeight() / 2);
+nube1.SetOpacity(0.8);
+
+nube2_img = Image("nube2.png");
+nube2 = Sprite(nube2_img);
+nube2.SetX(0);
+nube2.SetY(Window.GetHeight() * 0.75 - nube1_img.GetHeight() / 2);
+nube2.SetOpacity(0);
+
+# Carga logo Huayra
+huayra_logo = Image("logo.png");
+# Escala el logo proporcionalmente segun tamaño de pantalla.
+logo_ratio = huayra_logo.GetWidth() / huayra_logo.GetHeight();
+logo_height = Window.GetHeight() * 0.43333333;
+logo_width = logo_height * logo_ratio;
+huayra_logo = huayra_logo.Scale(logo_width, logo_height);
+logo_sprite = Sprite(huayra_logo);
+# Posiciona el logo por encima del centro
+logo_sprite.SetX(Window.GetWidth() / 2 - huayra_logo.GetWidth() / 2);
+logo_sprite.SetY((Window.GetHeight() / 2) - logo_height);
+logo_sprite.SetZ(10);
+logo_sprite.SetOpacity(0.2);
+
+
+#iconos
+
+total_i = 7;
+icon_w = 64;
+space = 32;
+space2 = space + icon_w;
+ancho_p = Window.GetWidth();
+
+
+
+pos_icon1 = ((ancho_p) - ((total_i * icon_w) + ((total_i - 1) * space)))/2;
+
+# Swap
+icon_swap_img = Image("swap.png");
+icon_y = (Window.GetHeight() - icon_swap_img.GetHeight() - 50);
+icon_swap = Sprite(icon_swap_img);
+icon_swap.SetX(pos_icon1);
+icon_swap.SetY(icon_y);
+icon_swap.SetOpacity(0);
+
+# Check
+pos_icon2 = pos_icon1 + space2;
+icon_check_img = Image("check.png");
+icon_check = Sprite(icon_check_img);
+icon_check.SetX(pos_icon2);
+icon_check.SetY(icon_y);
+icon_check.SetOpacity(0);
+
+# Cleaning
+pos_icon3 = pos_icon2 + space2;
+icon_temp_img = Image("cleaning.png");
+icon_temp = Sprite(icon_temp_img);
+icon_temp.SetX(pos_icon3);
+icon_temp.SetY(icon_y);
+icon_temp.SetOpacity(0);
+
+# Mount
+pos_icon4 = pos_icon3 + space2;
+icon_mount_img = Image("mount.png");
+icon_mount = Sprite(icon_mount_img);
+icon_mount.SetX(pos_icon4);
+icon_mount.SetY(icon_y);
+icon_mount.SetOpacity(0);
+
+# Network
+pos_icon5 = pos_icon4 + space2;
+icon_network_img = Image("network.png");
+icon_network = Sprite(icon_network_img);
+icon_network.SetX(pos_icon5);
+icon_network.SetY(icon_y);
+icon_network.SetOpacity(0);
+
+# Printing
+pos_icon6 = pos_icon5 + space2;
+icon_printing_img = Image("printing.png");
+icon_printing = Sprite(icon_printing_img);
+icon_printing.SetX(pos_icon6);
+icon_printing.SetY(icon_y);
+icon_printing.SetOpacity(0);
+
+# Audio
+pos_icon7 = pos_icon6 + space2;
+icon_audio_img = Image("audio.png");
+icon_audio = Sprite(icon_audio_img);
+icon_audio.SetX(pos_icon7);
+icon_audio.SetY(icon_y);
+icon_audio.SetOpacity(0);
+
+# Add your code here
+alfa = 0.0;
+bucle = 0;
+cuadros = 0;
+
+fsck_running = 0;
+fsck_dev_array;
+fsck_dev_counter = 0;
+fsck_fade_in_counter = 0;
+fsck_done_fading = 0;
+
+stars_array;
+stars_n = 0;
+
+//full_msg = "";
+msgs_line;
+original;
+msg1;
+
+timer_sprite.SetImage(timer_imagenes[1]);
+vaca1width = timer_imagenes[1].GetWidth();
+timer_sprite.SetX(Window.GetWidth() / 2);
+desplazamiento = -10;
+
+cuadros = 0;
+fun refresh_callback()
+  {
+
+	cuadros++;
+	if (cuadros > 27){
+		cuadros = 0;
+	}
+
+	nube1.SetX(nube1.GetX() + 1);	
+
+	timer_sprite.SetX(timer_sprite.GetX() + desplazamiento);
+	vaca_x = timer_sprite.GetX();
+	if (desplazamiento < 0) {
+		timer_sprite.SetImage(timer_imagenes[cuadros]);
+	} else {
+		timer_sprite.SetImage(timer_imagenes_flip[cuadros]);
+	}
+	if (vaca_x <= 0 - vaca1width || vaca_x >= Window.GetWidth()) {
+		desplazamiento = -1 * desplazamiento;
+	}
+
+
+
+
+	logo_sprite.SetOpacity(alfa/100);
+	
+	bucle++;
+	if (bucle < 100){     
+		alfa++;
+	} else {
+		alfa--;
+	}
+	if(bucle > 200){
+		bucle = 0;
+	}
+
+  }
+
+Plymouth.SetRefreshFunction (refresh_callback);
+
+
+
+#----------------------------------------- Quit --------------------------------
+
+fun quit_callback ()
+{
+}
+
+Plymouth.SetQuitFunction(quit_callback);
+
+
+
+
+
+/*
+ * This function will display the most current message */
+fun updateHandler(msg) {
+
+	#original = Sprite(Image.Text(msg, 1, 0.5, 0, 1, "Rosario Bold 14"));
+	#original.SetPosition((ancho_pantalla / 2) - (original.GetImage().GetWidth() / 2), (altura_pantalla -original.GetImage().GetHeight()) - 40, 10000);
+
+	if (msg == "Using makefile-style concurrent boot in runlevel S") {
+		msg = "Usando booteo estilo makefile en runlevel S";
+	}
+	if (msg == "Starting the hotplug events dispatcher: udevd") {
+		msg = "Iniciando el disparador de eventos hotplug: udevd";
+	}
+	if (msg == "Synthesizing the initial hotplug events...") {
+		msg = "Sintetizando los eventos hotplug iniciales...";
+	}
+	if (msg == "Waiting for /dev to be fully populated...") {
+		msg = "Esperando que /dev esté completamente poblada...";
+	}
+	if (msg == "Setting preliminary keymap...") {
+		msg = "Configurando mapa preliminar de caracteres...";
+	} 
+	if (msg == "Activating swap...") {
+		msg = "Activando memoria de intercambio...";
+		icon_swap.SetOpacity(1);
+	}
+	if (msg == "Checking root file system...") {
+		msg = "Analizando systema de archivos raíz...";
+		icon_check.SetOpacity(1);
+	}
+	if (msg == "Cleaning up temporary files...") {
+		msg = "Limpiando archivos temporales...";
+		icon_temp.SetOpacity(1);
+	} 
+	if (msg == "Loading kernel module loop.") {
+		msg = "Cargando bucle de modulo de kernel.";
+	}
+	if (msg == "Activating lvm and md swap...") {
+		msg = "Activando lvm y md swap...";
+	}
+	if (msg == "Checking file systems...") {
+		msg = "Analizando sistemas de archivo...";
+	}
+	if (msg == "Mounting local filesystems...") {
+		msg = "Montando sistemas de archivo locales...";
+		icon_mount.SetOpacity(1);
+	} 
+	if (msg == "Activating swapfile swap...") {
+		msg = "Activando archivo de intercambio...";
+	}
+	if (msg == "Setting kernel variables ...") {
+		msg = "Configurando variables del kernel...";
+	} 
+	if (msg == "Configuring network interfaces...") {
+		msg = "Configurando interfaces de red...";
+		icon_network.SetOpacity(1);
+	} 
+	if (msg == "Setting console screen modes.") {
+		msg = "Configurando modos de pantalla de consola.";
+	}
+	if (msg == "Skipping font and keymap setup (handled by console-setup)") {
+		msg = "Salteando configuración de fuentes y mapas de caracteres (administrado por console-setup)";
+	}
+	if (msg == "Setting up console font and keymap...") {
+		msg = "Configurando fuente de consola y mapa de caracteres...";
+	} 
+	if (msg == "Setting sensors limits") {
+		msg = "Configurando limites de sensores";
+	}
+	if (msg == "Using makefile-style concurrent boot in runlevel 2.") {
+		msg = "Usando booteo estilo makefile en runlevel 2.";
+	}
+	if (msg == "Starting enhanced syslogd: rsyslogd") {
+		msg = "Iniciando syslogd mejorado: rsyslogd";
+	} 
+	if (msg == "Starting system message bus: dbus") {
+		msg = "Iniciando bus de systema de mensajes: dbus";
+	} 
+	if (msg == "Starting network connection manager: NetworkManager") {
+		msg = "Iniciando administrador de conexiones de red: NetworkManager";
+	} 	
+	if (msg == "Starting ACPI services...") {
+		msg = "Iniciando servicios ACPI...";
+	}
+	if (msg == "Starting virtual private network daemon:") {
+		msg = "Iniciando demonio de red privada virtual:";
+	}
+	if (msg == "Starting GNOME Display Manager: gdm3") {
+		msg = "Iniciando Administrado de Ventanas: gdm3";
+	} 
+	if (msg == "Enabling power management...") {
+		msg = "Activando administración de energía...";
+	} 
+	if (msg == "Starting Avahi mDNS/DNS-SD Daemon: avahi-daemon") {
+		msg = "Iniciando Demonio Avahi mDNS/DNS-SD avahi-daemon";
+	}
+	if (msg == "Starting Common Unix Printing System: cupsd") {
+		msg = "Iniciando Sistema de Impresión en Linux: cupsd";
+	}
+	if (msg == "Starting the epoptes daemon:") {
+		msg = "Iniciando el demonio de epoptes:";
+	}
+	if (msg == "Starting web server: lighttpd") {
+		msg = "Iniciando servidor web: lighttpd";
+	}
+	if (msg == "Loading cpufreq kernel modules...") {
+		msg = "Cargando modulos de kernel cpufreq...";
+	}
+	if (msg == "CPUFreq Utilities: Setting ondemand CPUFreq governor...") {
+		msg = "Utilidades CPUFreq: configurando gobernante CPUFreq ondemand"; /* ?? */
+	}
+	if (msg == "disabled, governor not available...") {
+		msg = "deshabilitado, no hay gobernante disponible...";
+	}
+	if (msg == "Starting acpi_fakekey daemon...") {
+		msg = "Iniciando demonio acpi_fakekey...";
+	} 
+	if (msg == "Setting parameters of disc:") {
+		msg = "Configurando parametros del disco:";
+	} 
+
+
+/* Apagado */
+
+	if (msg == "Stopping GNOME Display Manager: gdm3") {
+		msg = "Apagando Manejador de Ventanas GNOME: gdm3";
+	}
+	if (msg == "Stopping the epoptes daemon:") {
+		msg = "Apagando el demonio de epoptes:";
+	}
+	if (msg == "Stopping web server: lighttpd") {
+		msg = "Apagando servidor web: lighttpd";
+	}
+	if (msg == "Stopping virtual private network daemon:") {
+		msg = "Apagando demonio de red privada virtual:";
+	}
+	if (msg == "PulseAudio") {
+		msg = "PulseAudio";
+	}
+	if (msg == "Stopping Avahi mDNS/DNS-SD Daemon: avahi-daemon") {
+		msg = "Apagando Demonio Avahi mDNS/DNS-SD avahi-daemon";
+	}
+	if (msg == "Asking all remaining processes to terminate...") {
+		msg = "Pidiendo a los procesos restantes que terminen...";
+	}
+	if (msg == "All processes ended within 1 seconds...") { /* ver como parsear esto */
+		msg = "Todos los procesos terminaron en 1 segundo...";
+	}
+	if (msg == "Stopping enhanced syslogd: rsyslogd") {
+		msg = "Apagando syslogd mejorado: rsyslogd";
+	}
+	if (msg == "Saving the system clock.") {
+		msg = "Guardando el estado del reloj de sistema.";
+	}
+	if (msg == "Deconfiguring network interfaces...") {
+		msg = "Desconfigurando interfaces de red...";
+	}
+	if (msg == "Hardware Clock updated to") { /* Ver como parsear la primera parte */
+		msg = "Reloj interno actualizado a ";
+	}
+	if (msg == "Deactivating swap...") {
+		msg = "Desactivando memoria de intercambio...";
+	}
+	if (msg == "Unmounting local filesystems...") {
+		msg = "Desmontanto sistemas de archivo locales...";
+	}
+	if (msg == "Will now restart.") {
+		msg = "Huayra va a reiniciar.";
+	}
+	if (msg == "Will now halt.") {
+		msg = "Huayra fuera!";
+	}
+	msgs_line[0] = Sprite(Image.Text(msg, 0.4, 0.4, 1, 1, "Rosario Bold 12"));
+	msgs_line[0].SetPosition((medio) - (msgs_line[0].GetImage().GetWidth() / 2), (icon_y + 80), 10000);
+}
+
+fun messageHandler(msg)
+{
+	if (msg == "Restarting system...") {
+		msg = "Reiniciando Huayra GNU/Linux...";
+	}
+	if (msg == "Shutting down system...") {
+		msg = "Apagando la computadora...";
+	}
+
+	msg1_y = logo_sprite.GetY() + logo_height + 10;
+	msg1 = Sprite(Image.Text(msg, 0.4, 0.4, 1, 1, "Rosario Bold 14"));
+	msg1.SetPosition((medio) - (msg1.GetImage().GetWidth() /2 ),msg1_y, 10000);
+
+}
+Plymouth.SetUpdateStatusFunction(updateHandler);
+Plymouth.SetMessageFunction(messageHandler);
